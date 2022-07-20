@@ -1,0 +1,94 @@
+
+
+  .App{
+    background-color: #140F07;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  .App-Content {
+
+    height: 100%;
+    width: 88%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  .App-Sidebar{
+
+    height: 100% ;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  
+  }
+
+
+.App-Content-Top{
+    height: 70%;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    
+}
+.App-Content-Bottom{
+    height: 30%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.App-Content-Top-Left{
+    width: 50%;
+    height: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.App-Content-Top-Right{
+    width: 50%;
+    height: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.App-Content-Bottom-Left{
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.App-Content-Bottom-Right{
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
