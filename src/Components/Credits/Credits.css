@@ -1,17 +1,11 @@
-.bg-Dataflow{
+.bg-Credits{
     background-color:#1B2745;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 95%;
-    width:95%;
+    width:  95%;
     border-radius:1em;
     border: 1px solid;
-    font-size: 0.6em;
-    font-family:'Open Sans';
-    font-weight: lighter;
-    list-style-type: none;
-    
-    
 }

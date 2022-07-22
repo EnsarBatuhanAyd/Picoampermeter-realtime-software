@@ -1,12 +1,12 @@
 import React from "react";
 import "./Sidebar.css";
-import sync from "./../../Images/sync.png";
+
 
 const Sidebar = () => {
   return (
     <div className="bg-sidebar">
       <div className="sync-sidebar">
-        <img className="sync-image" href={sync}></img>
+        <div className="sync-image" ></div> 
         Auto Sync
       </div>
       <div>
@@ -26,7 +26,7 @@ const Sidebar = () => {
               <li>Settings</li>
             </button>
           </a>
-          <a href="/">
+          <a href="/credits">
             <button className="sidebar-button">
               <li>Credit</li>
             </button>
