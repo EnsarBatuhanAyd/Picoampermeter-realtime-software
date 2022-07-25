@@ -8,9 +8,9 @@ const Devicecontrol = () => {
         <div className="Status-title">Device Status</div>
         <div className="Status-area">
         <ul className="Status-content">
-          <li>Data Flow</li>
-          <li>Database Connection</li>
-          <li>Software Health</li>
+          <li><div className="point-status-green"></div>Data Flow</li>
+          <li><div className="point-status-green"></div>Database Connection</li>
+          <li><div className="point-status-yellow"></div>Software Health</li>
         </ul>
         </div>
       </div>

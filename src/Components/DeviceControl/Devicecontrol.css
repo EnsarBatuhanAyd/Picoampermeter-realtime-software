@@ -45,10 +45,19 @@
     align-items:center;
     flex-direction: column;
     display:flex;
-    justify-content: flex-start;
+    
     font-weight:lighter;
     font-family: "Open Sans";
     font-size: 0.8em;
+}
+
+
+.Status-content li{
+   
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-around;
 }
 
 
@@ -102,4 +111,21 @@
     align-items:center;
     justify-content: center;
     color:#8B9CFA;
+}
+.point-status-green{
+    width:0.5em;
+    height:0.5em;
+    border-radius: 5em;
+    background-color:green;
+    margin-right:0.5em;
+
+}
+.point-status-yellow{
+    width:0.5em;
+    height:0.5em;
+    border-radius: 5em;
+    background-color:yellow;
+    margin-right:0.5em;
+
+
 }

@@ -9,3 +9,13 @@
     border-radius:1em;
     border: 1px solid;
 }
+.Credit-title{
+    font-family:"Open Sans";
+    font-weight:bold;
+    font-size:0.9em;
+}
+.Credit-text{
+    font-family:"Open Sans";
+    font-weight:lighter;
+    font-size:0.8em;
+}
