@@ -9,9 +9,7 @@ const Credits = () => {
         This Software developing for measure current coming from Keithley 6485
         and data with graphs visualize now it's more meaningful!
       </p>
-      <p className="Credit-text">
-        Also this program alternative solution for SCAPS-1D, Silvaco, ADEPT etc.
-      </p>
+     
       <p className="Credit-text">Developer: Ensar Batuhan Aydın</p>
       <p className="Credit-text">
         Infrastructure center : Selcuk University - Laser Spectroscopy
