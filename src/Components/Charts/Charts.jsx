@@ -50,27 +50,28 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const Charts = () => {
-  const [Value, setValue] = useState("");
-  const config = {
-    databaseURL: "https://picoammeter-database-default-rtdb.firebaseio.com/",
-    projectId: "picoammeter-database",
-  };
-  firebase.initializeApp(config);
-  const db = firebase.firestore();
-  const doc_ref = db.collection("Measurement");
+  // const [Value, setValue] = useState("");
+  // const config = {
+  //   databaseURL: "https://picoammeter-database-default-rtdb.firebaseio.com/",
+  //   projectId: "picoammeter-database",
+  // };
+  // firebase.initializeApp(config);
+  // const db = firebase.firestore();
+  // const doc_ref = db.collection("Measurement")
+  // const doc_ref1=  doc_ref.orderBy('Date', 'desc').limit(1);
+  // console.log("Data Pulling!");
+  // doc_ref1.get().then((snapshot) => {
+  //   const data= snapshot.docs.map((doc) => ({
+  //     id: doc.id,
+  //     ...doc.data(),
+  //   }));
+  // console.log(data)
+  
 
-  console.log("Data Pulling!");
-  doc_ref.get().then((snapshot) => {
-    const datas = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-
-    console.log(datas[0].value);
-    console.log(datas[0].Date);
-    // setValue(  { name: datas[0].Date, uv: datas[0].value, pv: 2400, amt: 2400 });
-    
-  });
+  // //   // console.log(datas[0].value);
+  // //   // console.log(datas[0].Date);
+  // //   // setValue(  { name: datas[0].Date, uv: datas[0].value, pv: 2400, amt: 2400 });
+  // });
   return (
     <div className="bg-charts">
       <LineChart
