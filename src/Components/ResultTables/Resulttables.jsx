@@ -32,15 +32,15 @@ const Resulttables = () => {
   };
   firebase.initializeApp(config);
   const db = firebase.firestore();
-
-  const doc_ref = db.collection("Measurement").orderBy("Date", "desc").limit(10);
-
-  console.log("Data Pulling!");
-  doc_ref.get().then((snapshot) => {
+  db.collection("Measurement")
+  .orderBy("Date", "desc")
+  .limit(10)
+  .onSnapshot(function (snapshot) {
     const data = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+          id: doc.id,
+          ...doc.data(),
+        }));
+
     console.log(data);
     setValue0(data[0].Value);
     setDate0(data[0].Date);
