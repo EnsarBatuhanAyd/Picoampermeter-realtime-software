@@ -39,34 +39,32 @@ const Dataflow = () => {
   //     });
   //   });
 
-    firebase.initializeApp(config);
-    const db = firebase.firestore();
-
-    const doc_ref = db
-      .collection("Measurement")
-      .orderBy("Date", "desc")
-      .limit(5);
-
-    console.log("Data Pulling!");
-    doc_ref.get().then((snapshot) => {
+  firebase.initializeApp(config);
+  const db = firebase.firestore();
+  db.collection("Measurement")
+    .orderBy("Date", "desc")
+    .limit(5)
+    .onSnapshot(function (snapshot) {
       const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      console.log(data);
-      setValue(data[0].Value);
-      setDate(data[0].Date);
-      setValue1(data[1].Value);
-      setDate1(data[1].Date);
-      setValue2(data[2].Value);
-      setDate2(data[2].Date);
-      setValue3(data[3].Value);
-      setDate3(data[3].Date);
-      setValue4(data[4].Value);
-      setDate4(data[4].Date);
-    });
-  
+            id: doc.id,
+            ...doc.data(),
+          }));
 
+
+
+
+      console.log("Current data: ", data);
+         setValue(data[0].Value);
+    setDate(data[0].Date);
+    setValue1(data[1].Value);
+    setDate1(data[1].Date);
+    setValue2(data[2].Value);
+    setDate2(data[2].Date);
+    setValue3(data[3].Value);
+    setDate3(data[3].Date);
+    setValue4(data[4].Value);
+    setDate4(data[4].Date);
+    });
   return (
     <div className="bg-Dataflow">
       Data recieved Transmission started...
