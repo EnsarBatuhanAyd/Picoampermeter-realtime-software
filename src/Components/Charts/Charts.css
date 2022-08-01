@@ -2,7 +2,7 @@
     background-color:#1B2745;
     display: flex;
     justify-content: center;
-    
+    align-items: center;
     flex-direction: column;
     height: 95%;
     width:90%;

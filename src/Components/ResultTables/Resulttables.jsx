@@ -7,7 +7,7 @@ import "firebase/compat/firestore";
 const Resulttables = () => {
   const [Date0, setDate0] = useState("");
   const [Value0, setValue0] = useState("");
-  const [Date1, setDate1] = useState("");
+  const [Date1, setDate1] = useState(""); 
   const [Value1, setValue1] = useState("");
   const [Date2, setDate2] = useState("");
   const [Value2, setValue2] = useState("");
