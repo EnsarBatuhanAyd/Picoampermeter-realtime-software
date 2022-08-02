@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Realtime from "./Pages/RealtimePage"
 import Results from "./Pages/ResultsPage"
 import Credits from "./Pages/CreditPage"
+import Login from "./Pages/LoginPage"
 function App() {
   
   return (
@@ -17,8 +18,11 @@ function App() {
       <Route path="/results">
           <Results />
         </Route>
-        <Route path="/">
+        <Route path="/realtime">
           <Realtime />
+        </Route>
+        <Route path="/">
+          <Login />
         </Route>
       </Switch>
     </Router>

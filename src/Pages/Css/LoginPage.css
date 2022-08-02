@@ -1,0 +1,22 @@
+.App-Login{
+    background-color: #1b2745eb;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  .App-Content-Login{
+    width: 40%;
+    height: 90%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+  }

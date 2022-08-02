@@ -5,13 +5,13 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="bg-sidebar">
-      <div className="sync-sidebar">
-        <div className="sync-image" ></div> 
-        Auto Sync
+      <div className="logo-sidebar">
+        <div className="logo-image" ></div> 
+        
       </div>
       <div>
         <ul className="navigate-sidebar">
-          <a href="/">
+          <a href="/realtime">
             <button type="button" className="sidebar-button">
               <li>Realtime</li>
             </button>
@@ -33,7 +33,10 @@ const Sidebar = () => {
           </a>
         </ul>
       </div>
-      <div className="year-sidebar">2022</div>
+      <div className="sync-sidebar">
+        <div className="sync-image" ></div> 
+        Auto Sync
+      </div>
     </div>
   );
 };
