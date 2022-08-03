@@ -21,7 +21,7 @@ function App() {
         <Route path="/realtime">
           <Realtime />
         </Route>
-        <Route path="/">
+        <Route  path="/">
           <Login />
         </Route>
       </Switch>
