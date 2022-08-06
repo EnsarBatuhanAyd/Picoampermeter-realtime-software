@@ -26,11 +26,8 @@ const Resulttables = () => {
   const [Value9, setValue9] = useState("");
   const [Date9, setDate9] = useState("");
 
-  const config = {
-    databaseURL: "https://picoammeter-database-default-rtdb.firebaseio.com/",
-    projectId: "picoammeter-database",
-  };
-  firebase.initializeApp(config);
+
+
   const db = firebase.firestore();
   db.collection("Measurement")
   .orderBy("Date", "desc")

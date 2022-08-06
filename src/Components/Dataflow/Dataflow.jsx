@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./Dataflow.css";
 import { useState } from "react";
 import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
 
 const Dataflow = () => {
   const [Date, setDate] = useState("");
@@ -19,28 +18,8 @@ const Dataflow = () => {
     databaseURL: "https://picoammeter-database-default-rtdb.firebaseio.com/",
     projectId: "picoammeter-database",
   };
-  // firebase.initializeApp(config);
-  // const db = firebase.firestore();
 
-  // db.collection("Measurement")
-  //   .get()
-  //   .then(function (querySnapshot) {
-  //     querySnapshot.forEach(function (doc) {
-  //       doc_ref = db.collection("Measurement").orderBy("Date", "desc").limit(5);
-
-  //       doc_ref.onSnapshot(function (snapshot) {
-  //         snapshot.docChanges().forEach(function (messageDoc) {
-  //           const data = snapshot.docChanges().docs.map((doc) => ({
-  //                   id: doc.id,
-  //                   ...doc.data(),
-  //                 })
-  //         });
-  //       });
-  //     });
-  //   });
-
-  firebase.initializeApp(config);
-  const db = firebase.firestore();
+  const db=firebase.firestore()
   db.collection("Measurement")
     .orderBy("Date", "desc")
     .limit(5)

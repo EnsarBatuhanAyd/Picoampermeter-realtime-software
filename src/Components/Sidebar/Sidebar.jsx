@@ -21,14 +21,15 @@ const Sidebar = () => {
               <li>Results</li>
             </button>
           </a>
-          <a href="/">
-            <button className="sidebar-button">
-              <li>Settings</li>
-            </button>
-          </a>
+         
           <a href="/credits">
             <button className="sidebar-button">
               <li>Credit</li>
+            </button>
+          </a>
+          <a href="/">
+            <button className="sidebar-button">
+              <li>LogOut</li>
             </button>
           </a>
         </ul>
