@@ -12,16 +12,16 @@ function App() {
     
     <Router>
       <Switch>
-      <Route path="/credits">
+      <Route  exact path="/credits">
           <Credits />
         </Route>
-      <Route path="/results">
+      <Route exact path="/results">
           <Results />
         </Route>
-        <Route path="/realtime">
+        <Route exact path="/realtime">
           <Realtime />
         </Route>
-        <Route  path="/">
+        <Route exact path="/">
           <Login />
         </Route>
       </Switch>
