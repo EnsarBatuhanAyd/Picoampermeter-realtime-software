@@ -45,8 +45,8 @@ const Charts = () => {
   return (
     <div className="bg-charts">
       <LineChart
-        width={500}
-        height={350}
+        width={600}
+        height={500}
         data={datas}
         margin={{ top: 0, right: 30, bottom: 5, left: 0 }}
       >
@@ -54,7 +54,7 @@ const Charts = () => {
         <Line type="monotone" dataKey="Value" stroke="#00FF00" />
 
         <XAxis fontSize={"0.6em"}dataKey="Date" ></XAxis>
-        <YAxis fontSize={"0.6em"} domain={[4.0e-087,1.0e-8]} />
+        <YAxis fontSize={"0.6em"} domain={[,]} />
         <Tooltip cursor={false} content={<CustomTooltip />} />
         <Legend></Legend>
       </LineChart>
