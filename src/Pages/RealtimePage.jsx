@@ -14,7 +14,7 @@ function RealtimePage() {
             <Charts></Charts>
           </div>
           <div className="App-Content-Top-Right">
-            <Charts></Charts>
+        <h1>Frequence Time</h1>
           </div>
         </div>
         <div className="App-Content-Bottom">
