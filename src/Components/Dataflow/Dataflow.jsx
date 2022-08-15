@@ -21,11 +21,14 @@ const Dataflow = () => {
   const current = new Date();
   const month = current.toLocaleString("default", { month: "long" });
   const cdate = `${current.getDate()} ${month} ${current.getFullYear()}`;
+  // const cartificaldate="12 August 2022"
+  // You need to write relations of date when program is open data it can be last data !!!!
   console.log(cdate);
 
   const db = firebase.firestore();
   const doc_ref = db.collection("Measurement");
   const doc_ref2 = doc_ref.doc(cdate);
+  // const doc_ref2 = doc_ref.doc(cartificaldate);
   doc_ref2
     .collection("data")
     .orderBy("Time", "desc")
