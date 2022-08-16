@@ -5,15 +5,35 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
 const Resulttables = () => {
+  const [Data0, setData0] = useState("No Data For View");
+  const [Data1, setData1] = useState("No Data For View");
+  const [Data2, setData2] = useState("No Data For View");
+  const [Data3, setData3] = useState("No Data For View");
+  const [Data4, setData4] = useState("No Data For View");
+  const [Data5, setData5] = useState("No Data For View");
+  const [Data6, setData6] = useState("No Data For View");
+  const [Data7, setData7] = useState("No Data For View");
+  const [Data8, setData8] = useState("No Data For View");
+
+
   const db = firebase.firestore();
+ 
+  
+ 
   db.collection("Measurement")
   .onSnapshot(function (snapshot) {
     const data = snapshot.docs.map((doc) => ({
-     
-      ...doc.id,
+      id: doc.id,
+      ...doc.data(),
     }));
-      
-     console.log(data);
+      const dataresult=String(data[0].id)
+      console.log(data  )
+      console.log(dataresult);
+      setData0(data[0].id);
+      setData1(data[1].id);
+      setData2(data[2].id);
+
+
     });
 
   return (
@@ -21,16 +41,49 @@ const Resulttables = () => {
       <div className="Table-titles-area">
         <ul className="Table-titles">
           <li>Date & Time</li>
-          <li>Ampertange</li>
+
           <li>Download</li>
         </ul>
         <hr className="Table-line"></hr>
       </div>
       <div className="Table-data-area">
         <ul className="Table-datas">
-          <li></li>
+          <li>{Data0}</li>
           <li className="download-image"></li>
         </ul>
+        <ul className="Table-datas">
+          <li>{Data1}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data2}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data3}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data4}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data5}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data6}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data7}</li>
+          <li className="download-image"></li>
+        </ul>
+        <ul className="Table-datas">
+          <li>{Data8}</li>
+          <li className="download-image"></li>
+        </ul>
+
       </div>
     </div>
   );

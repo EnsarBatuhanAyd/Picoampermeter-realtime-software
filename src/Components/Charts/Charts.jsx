@@ -35,54 +35,20 @@ const Charts = () => {
   const doc_ref = db.collection("Measurement");
   const a = 1;
   const cartificaldate = "12 August 2022";
-    const doc_ref2 = doc_ref.doc(cartificaldate);
-    console.log(cartificaldate);
-    doc_ref2
-      .collection("data")
-      .orderBy("Time", "asc")
-      .onSnapshot(function (snapshot) {
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setdata(data);
+  const doc_ref2 = doc_ref.doc(cartificaldate);
+  console.log(cartificaldate);
 
-      });
-  // try {
-   
-  //   const doc_ref2 = doc_ref.doc(cdate);
-  //   doc_ref2
-  //     .collection("data")
-  //     .orderBy("Time", "asc")
-  //     .onSnapshot(function (snapshot) {
-  //       const data = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-  //       setdata(data);
-  //       setlastdata(data[data.length - 1].Value);
-  //     });
-
-  // }
-  // catch (err){
-  //   console.error(err.message)
-  // } 
-  // finally {
-  //   const cartificaldate = "12 August 2022";
-  //   const doc_ref2 = doc_ref.doc(cartificaldate);
-  //   console.log(cartificaldate);
-  //   doc_ref2
-  //     .collection("data")
-  //     .orderBy("Time", "asc")
-  //     .onSnapshot(function (snapshot) {
-  //       const data = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-  //       setdata(data);
-
-  //     });
-  // }
+  doc_ref2
+    .collection("data")
+    .orderBy("Time", "asc")
+    .onSnapshot(function (snapshot) {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setdata(data);
+      setlastdata(data[data.length - 1].Value);
+    });
 
   return (
     <div className="bg-charts">

@@ -41,7 +41,7 @@ const Dataflow = () => {
 
       console.log(data);
       setValue(data[0].Value);
-      setTime(data[0].Time);
+       setTime(data[0].Time);
       setValue1(data[1].Value);
       setTime1(data[1].Time);
       setValue2(data[2].Value);
