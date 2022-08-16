@@ -18,12 +18,10 @@ function RealtimePage() {
           </div>
         </div>
         <div className="App-Content-Bottom">
-          <div className="App-Content-Bottom-Left">
+          <div className="App-Content-Bottom-Inside">
             <Dataflow></Dataflow>
           </div>
-          <div className="App-Content-Bottom-Right">
-            <Devicecontrol></Devicecontrol>
-          </div>
+         
         </div>
       </div>
       <div className="App-Sidebar">

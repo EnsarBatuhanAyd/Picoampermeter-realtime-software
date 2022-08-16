@@ -26,6 +26,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 const Charts = () => {
   const [datas, setdata] = useState("");
   const [datal, setlastdata] = useState("");
+  const [hasError, setError] = React.useState(false);
   const current = new Date();
   const month = current.toLocaleString("default", { month: "long" });
   const cdate = `${current.getDate()} ${month} ${current.getFullYear()}`;
@@ -33,23 +34,89 @@ const Charts = () => {
 
   const db = firebase.firestore();
   const doc_ref = db.collection("Measurement");
-  const a = 1;
-  const cartificaldate = "12 August 2022";
-  const doc_ref2 = doc_ref.doc(cartificaldate);
-  console.log(cartificaldate);
+  const doc_ref2 = doc_ref.doc(cdate);
+  const doc_ref3 = doc_ref.doc("12 August 2022");
+  doc_ref2.get().then((doc) => {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+          doc_ref2
+      .collection("data")
+      .orderBy("Time", "asc")
 
-  doc_ref2
-    .collection("data")
-    .orderBy("Time", "asc")
-    .onSnapshot(function (snapshot) {
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setdata(data);
-      setlastdata(data[data.length - 1].Value);
-    });
+      .onSnapshot(function (snapshot) {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
 
+        setdata(data);
+        setlastdata(data[data.length - 1].Value);
+      });
+    } else {
+
+        console.log("No such document!");
+        doc_ref3
+        .collection("data")
+        .orderBy("Time", "asc")
+  
+        .onSnapshot(function (snapshot) {
+          const data = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+  
+          setdata(data);
+          setlastdata(data[data.length - 1].Value);
+        });
+
+
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+})
+
+
+  // const cartificaldate = "12 August 2022";
+  // try {
+  //   const doc_ref2 = doc_ref.doc(cdate);
+  //   // console.log(cartificaldate);
+
+  //   doc_ref2
+  //     .collection("data")
+  //     .orderBy("Time", "asc")
+
+  //     .onSnapshot(function (snapshot) {
+  //       const data = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+
+  //       setdata(data);
+  //       setlastdata(data[data.length - 1].Value);
+  //     });
+  // } catch (error) {
+  //   errorService.log(error);
+  //   setError(true);
+  // }
+
+  // if (hasError) {
+  //   const doc_ref2 = doc_ref.doc("12 August 2022");
+  //   // console.log(cartificaldate);
+
+  //   doc_ref2
+  //     .collection("data")
+  //     .orderBy("Time", "asc")
+
+  //     .onSnapshot(function (snapshot) {
+  //       const data = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+
+  //       setdata(data);
+  //       setlastdata(data[data.length - 1].Value);
+  //     });
+  // }
   return (
     <div className="bg-charts">
       <LineChart
