@@ -57,7 +57,11 @@
 }
 .download-image{
     background-image: url("./../../Images/download.png");
-    width:2.1em;
-    height:2em;
+    width:1.6em;
+    height:1.5em;
     background-size: cover;
+}
+.downloadButton{
+    background-color: transparent;
+    border: none;
 }
