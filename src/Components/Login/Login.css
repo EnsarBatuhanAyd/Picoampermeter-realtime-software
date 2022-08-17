@@ -93,17 +93,18 @@
     font-weight: lighter;
 }
 .Button-enter{
-    width: 40%;
+    width: 30%;
     height:35%;
-    background-color:#00f30c;
+    background-color:#00f30c63;
     border-radius: 5em;
     border: 1px solid;
     border-color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-size:0.8em;
     font-family: "Open Sans";
-    font-weight: bold;
+    font-weight: lighter;
     color: white;
     text-decoration:none ;
 }
