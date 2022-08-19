@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:"/Picoampermeter-realtime-software/",
-  plugins: [react()]
+   plugins: [react()],
+   base: '/Picoampermeter-realtime-software/'
 })
