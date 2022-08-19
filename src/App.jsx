@@ -10,15 +10,16 @@ function App() {
   
   return (
     
-    <Router>
+    <Router >
       <Switch>
-      <Route  exact path="/credits">
+      
+      <Route path="/credits">
           <Credits />
         </Route>
-      <Route exact path="/results">
+      <Route  path="/results">
           <Results />
         </Route>
-        <Route exact path="/realtime">
+        <Route  path="/realtime">
           <Realtime />
         </Route>
         <Route exact path="/">
