@@ -6,6 +6,6 @@
   RewriteRule ^ - [L]
   
   # Fallback all other routes to index.html
-  RewriteRule ^ /pico/index.html [L]
+  RewriteRule ^ /Picoampermeter-realtime-software/index.html [L]
 
 </IfModule>

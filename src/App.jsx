@@ -2,27 +2,26 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Realtime from "./Pages/RealtimePage"
-import Results from "./Pages/ResultsPage"
-import Credits from "./Pages/CreditPage"
-import Login from "./Pages/LoginPage"
+import Realtime from "./Pages/RealtimePage";
+import Results from "./Pages/ResultsPage";
+import Credits from "./Pages/CreditPage";
+import Login from "./Pages/LoginPage";
 function App() {
-  
   return (
     
-    <Router basename="/" >
+    <Router >
       <Switch>
-      
-      <Route path="/credits">
+     
+        <Route path="/credits">
           <Credits />
         </Route>
-      <Route  path="/results">
+        <Route path="/results">
           <Results />
         </Route>
-        <Route  path="/realtime">
+        <Route path="/realtime">
           <Realtime />
         </Route>
-        <Route exact path="/">
+        <Route  path="/">
           <Login />
         </Route>
       </Switch>

@@ -12,7 +12,38 @@ import {
   Legend,
   Label,
 } from "recharts";
-
+const datadefault = [
+  {
+      
+      Value: 11,
+      Dates: 120
+  },
+  {
+  
+      Value: 15,
+      Dates: 12
+  },
+  {
+     
+      Value: 5,
+      Dates: 10
+  },
+  {
+     
+      Value: 10,
+      Dates: 5
+  },
+  {
+ 
+      Value: 9,
+      Dates: 4
+  },
+  {
+     
+      Value: 10,
+      Dates: 8
+  },
+];
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
@@ -31,11 +62,16 @@ const Charts = () => {
   const month = current.toLocaleString("default", { month: "long" });
   const cdate = `${current.getDate()} ${month} ${current.getFullYear()}`;
   // const cartificaldate="12 August 2022"
+  
+
+  // cdate will be same for data date in result tables
+
+
 
   const db = firebase.firestore();
   const doc_ref = db.collection("Measurement");
   const doc_ref2 = doc_ref.doc(cdate);
-  const doc_ref3 = doc_ref.doc("12 August 2022");
+ 
   doc_ref2.get().then((doc) => {
     if (doc.exists) {
         console.log("Document data:", doc.data());
@@ -55,19 +91,25 @@ const Charts = () => {
     } else {
 
         console.log("No such document!");
-        doc_ref3
-        .collection("data")
-        .orderBy("Time", "asc")
-  
-        .onSnapshot(function (snapshot) {
-          const data = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-  
-          setdata(data);
-          setlastdata(data[data.length - 1].Value);
+        // This section will be load default data
+        useEffect(() => {
+          setdata(datadefault);
+          setlastdata(2);
         });
+
+        // doc_ref3
+        // .collection("data")
+        // .orderBy("Time", "asc")
+  
+        // .onSnapshot(function (snapshot) {
+        //   const data = snapshot.docs.map((doc) => ({
+        //     id: doc.id,
+        //     ...doc.data(),
+        //   }));
+  
+        //   setdata(data);
+        //   setlastdata(data[data.length - 1].Value);
+        // });
 
 
     }
@@ -75,48 +117,6 @@ const Charts = () => {
     console.log("Error getting document:", error);
 })
 
-
-  // const cartificaldate = "12 August 2022";
-  // try {
-  //   const doc_ref2 = doc_ref.doc(cdate);
-  //   // console.log(cartificaldate);
-
-  //   doc_ref2
-  //     .collection("data")
-  //     .orderBy("Time", "asc")
-
-  //     .onSnapshot(function (snapshot) {
-  //       const data = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-
-  //       setdata(data);
-  //       setlastdata(data[data.length - 1].Value);
-  //     });
-  // } catch (error) {
-  //   errorService.log(error);
-  //   setError(true);
-  // }
-
-  // if (hasError) {
-  //   const doc_ref2 = doc_ref.doc("12 August 2022");
-  //   // console.log(cartificaldate);
-
-  //   doc_ref2
-  //     .collection("data")
-  //     .orderBy("Time", "asc")
-
-  //     .onSnapshot(function (snapshot) {
-  //       const data = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-
-  //       setdata(data);
-  //       setlastdata(data[data.length - 1].Value);
-  //     });
-  // }
   return (
     <div className="bg-charts">
       <LineChart

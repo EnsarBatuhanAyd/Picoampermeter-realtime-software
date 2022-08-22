@@ -3,8 +3,14 @@ import "./Resulttables.css";
 import { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-
+import Popup from "./../Popup/Popup";
 const Resulttables = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   const [DataName1, setDataName1] = useState("No Data For View");
   const [Data1, setData1] = useState("");
   const [DataName2, setDataName2] = useState("No Data For View");
@@ -273,14 +279,22 @@ const Resulttables = () => {
       <div className="Table-titles-area">
         <ul className="Table-titles">
           <li>Date & Time</li>
-
-          <li>Download</li>
+          <li>Download Graph/Csv</li>
+          <li>Download Json/Txt</li>
         </ul>
         <hr className="Table-line"></hr>
       </div>
       <div className="Table-data-area">
         <ul className="Table-datas">
           <li>{DataName1}</li>
+          <li> <input
+            type="button"
+            value="Click to Open Popup"
+            onClick={togglePopup}
+          />{isOpen && <Popup
+            handleClose={togglePopup}
+          />}</li>
+         
           <button className="downloadButton" onClick={exportDataName1}>
             <li className="download-image"> </li>{" "}
           </button>
@@ -288,12 +302,14 @@ const Resulttables = () => {
 
         <ul className="Table-datas">
           <li>{DataName2}</li>
+          <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName2}>
             <li className="download-image"> </li>{" "}
           </button>
         </ul>
         <ul className="Table-datas">
           <li>{DataName3}</li>
+          <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName3}>
             <li className="download-image"> </li>{" "}
           </button>
@@ -301,12 +317,14 @@ const Resulttables = () => {
 
         <ul className="Table-datas">
           <li>{DataName4}</li>
+          <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName4}>
             <li className="download-image"> </li>{" "}
           </button>
         </ul>
         <ul className="Table-datas">
           <li>{DataName5}</li>
+          <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName5}>
             <li className="download-image"> </li>{" "}
           </button>
@@ -314,20 +332,23 @@ const Resulttables = () => {
 
         <ul className="Table-datas">
           <li>{DataName6}</li>
+         <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName6}>
             <li className="download-image"> </li>{" "}
           </button>
         </ul>
         <ul className="Table-datas">
           <li>{DataName7}</li>
+         <li>Click to Open Popup</li>
           <button className="downloadButton" onClick={exportDataName7}>
             <li className="download-image"> </li>{" "}
           </button>
         </ul>
-        
+
         <ul className="Table-datas">
           <li>{DataName8}</li>
-           <button className="downloadButton" onClick={exportDataName8}>
+         <li>Click to Open Popup</li>
+          <button className="downloadButton" onClick={exportDataName8}>
             <li className="download-image"> </li>{" "}
           </button>
         </ul>
