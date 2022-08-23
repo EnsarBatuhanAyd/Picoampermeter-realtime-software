@@ -26,8 +26,6 @@ const Dataflow = () => {
   const db = firebase.firestore();
   const doc_ref = db.collection("Measurement");
   const doc_ref2 = doc_ref.doc(cdate);
-  
-  const doc_ref3 = doc_ref.doc("12 August 2022");
   doc_ref2.get().then((doc) => {
     if (doc.exists) {
         console.log("Document data:", doc.data());
@@ -57,28 +55,18 @@ const Dataflow = () => {
     } else {
 
         console.log("No such document!");
-        doc_ref3
-        .collection("data")
-        .orderBy("Time", "desc")
-        .limit(10)
-        .onSnapshot(function (snapshot) {
-          const data = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-    
-          console.log(data);
-          setValue(data[0].Value);
-           setTime(data[0].Time);
-          setValue1(data[1].Value);
-          setTime1(data[1].Time);
-          setValue2(data[2].Value);
-          setTime2(data[2].Time);
-          setValue3(data[3].Value);
-          setTime3(data[3].Time);
-          setValue4(data[4].Value);
-          setTime4(data[4].Time);
-        });
+  
+        setValue("+1.534603e-06");
+        setTime("17:49:59");
+        setValue1("+1.513915e-06");
+        setTime1("17:49:57");
+        setValue2("+1.444438e-06  ");
+        setTime2("17:49:56");
+        setValue3("+1.512806e-06");
+        setTime3("17:49:55");
+        setValue4("+1.512806e-05");
+        setTime4("17:49:54");
+     
     
 
 

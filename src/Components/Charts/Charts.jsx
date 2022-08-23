@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Charts.css";
 import firebase from "firebase/compat/app";
 import {
@@ -92,10 +92,10 @@ const Charts = () => {
 
         console.log("No such document!");
         // This section will be load default data
-        useEffect(() => {
-          setdata(datadefault);
-          setlastdata(2);
-        });
+        
+        setdata(datadefault);
+        setlastdata(2);
+        
 
         // doc_ref3
         // .collection("data")
