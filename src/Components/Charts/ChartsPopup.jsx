@@ -51,76 +51,45 @@ const CustomTooltip = ({ active, payload, label }) => {
 const ChartsPopup = () => {
   const [datas, setdata] = useState("");
   const [datal, setlastdata] = useState("");
-  useEffect(() => {
-    setdata(datadefault);
-    setlastdata(2);
-  });
 
-  //   const [datal, setlastdata] = useState("");
-  //   const [hasError, setError] = React.useState(false);
-  //   const current = new Date();
-  //   const month = current.toLocaleString("default", { month: "long" });
-  //   const cdate = `${current.getDate()} ${month} ${current.getFullYear()}`;
+  const db = firebase.firestore();
+  const doc_ref = db.collection("Measurement");
+  const doc_ref2 = doc_ref.doc("12 August 2022");
+ 
+  doc_ref2.get().then((doc) => {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+          doc_ref2
+      .collection("data")
+      .orderBy("Time", "asc")
 
-  // const cartificaldate="12 August 2022"
+      .onSnapshot(function (snapshot) {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
 
-  //   const db = firebase.firestore();
-  //   const doc_ref = db.collection("Measurement");
-  //   const doc_ref2 = doc_ref.doc(cdate);
-  //   const doc_ref3 = doc_ref.doc("12 August 2022");
-  //   doc_ref2.get().then((doc) => {
+        setdata(data);
+        setlastdata(data[data.length - 1].Value);
+        
+      });
+    } else {
 
-  //     doc_ref3
-  //             .collection("data")
-  //             .orderBy("Time", "asc")
+        console.log("No such document!");
+        // This section will be load default data
+        useEffect(() => { 
+          setdata(datadefault);
+          setlastdata(2);
+        });
 
-  //             .onSnapshot(function (snapshot) {
-  //               const data = snapshot.docs.map((doc) => ({
-  //                 id: doc.id,
-  //                 ...doc.data(),
-  //               }));
+        // d
 
-  //               setdata(data);
-  //               setlastdata(data[data.length - 1].Value);
-  //             });
 
-  // //     if (doc.exists) {
-  // //         console.log("Document data:", doc.data());
-  // //           doc_ref2
-  // //       .collection("data")
-  // //       .orderBy("Time", "asc")
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+})
 
-  // //       .onSnapshot(function (snapshot) {
-  // //         const data = snapshot.docs.map((doc) => ({
-  // //           id: doc.id,
-  // //           ...doc.data(),
-  // //         }));
-
-  // //         setdata(data);
-  // //         setlastdata(data[data.length - 1].Value);
-  // //       });
-  // //     } else {
-
-  // //         console.log("No such document!");
-  // //         doc_ref3
-  // //         .collection("data")
-  // //         .orderBy("Time", "asc")
-
-  // //         .onSnapshot(function (snapshot) {
-  // //           const data = snapshot.docs.map((doc) => ({
-  // //             id: doc.id,
-  // //             ...doc.data(),
-  // //           }));
-
-  // //           setdata(data);
-  // //           setlastdata(data[data.length - 1].Value);
-  // //         });
-
-  // //     }
-  // // }).catch((error) => {
-  // //     console.log("Error getting document:", error);
-
-  // })
 
   return (
     <div className="bg-charts-popup">
@@ -133,7 +102,7 @@ const ChartsPopup = () => {
         <Line type="monotone" dataKey="Value" stroke="#00FF00" />
 
         <XAxis fontSize={"0.6em"} dataKey="Date"></XAxis>
-        <YAxis fontSize={"0.6em"} domain={[datal / 2, datal * 2]} />
+        <YAxis fontSize={"0.6em"} domain={[datal / 30, datal * 15]} />
         <Tooltip cursor={false} content={<CustomTooltip />} />
       </LineChart>
     </div>

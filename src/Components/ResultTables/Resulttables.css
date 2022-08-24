@@ -65,3 +65,13 @@
     background-color: transparent;
     border: none;
 }
+.popup-button{
+    background-color: transparent;
+    color:white;
+    border:none;
+    font-size: 1.1em;
+    
+}
+.popup-button:hover{
+    color:rgb(64, 189, 22);
+}

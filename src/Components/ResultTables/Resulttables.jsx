@@ -10,7 +10,8 @@ const Resulttables = () => {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-
+  const [DataName0, setDataName0] = useState("No Data For View");
+  const [Data0, setData0] = useState("");
   const [DataName1, setDataName1] = useState("No Data For View");
   const [Data1, setData1] = useState("");
   const [DataName2, setDataName2] = useState("No Data For View");
@@ -39,7 +40,7 @@ const Resulttables = () => {
     const dataresult = String(data[0].id);
     console.log(data);
     console.log(dataresult);
-
+    setDataName0(data[0].id);
     setDataName1(data[1].id);
     setDataName2(data[2].id);
     setDataName3(data[3].id);
@@ -50,6 +51,34 @@ const Resulttables = () => {
     setDataName8(data[8].id);
   });
 
+  const exportDataName0 = () => {
+    console.log(DataName0 + " data downloading...");
+    const doc_ref = db.collection("Measurement");
+    const doc_ref2 = doc_ref.doc(DataName0);
+    doc_ref2
+      .collection("data")
+      .orderBy("Time", "asc")
+      .onSnapshot(function (snapshot) {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setData0(data);
+        console.log(data);
+      });
+
+    const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+      JSON.stringify(Data0)
+    )}`;
+    const link = document.createElement("a");
+    const link1 = document.createElement("a");
+    link.href = jsonString;
+    link1.href = jsonString;
+    link.download = "data.json";
+    link1.download = "data.txt";
+    link.click();
+    link1.click();
+  };
   const exportDataName1 = () => {
     console.log(DataName1 + " data downloading...");
     const doc_ref = db.collection("Measurement");
@@ -285,15 +314,25 @@ const Resulttables = () => {
         <hr className="Table-line"></hr>
       </div>
       <div className="Table-data-area">
-        <ul className="Table-datas">
-          <li>{DataName1}</li>
+      <ul className="Table-datas">
+          <li>{DataName0}</li>
           <li> <input
+            className="popup-button"
             type="button"
             value="Click to Open Popup"
             onClick={togglePopup}
           />{isOpen && <Popup
             handleClose={togglePopup}
           />}</li>
+         
+          <button className="downloadButton" onClick={exportDataName0}>
+            <li className="download-image"> </li>{" "}
+          </button>
+        </ul>
+        <ul className="Table-datas">
+          <li>{DataName1}</li>
+          <li> Click to Open Popup
+         </li>
          
           <button className="downloadButton" onClick={exportDataName1}>
             <li className="download-image"> </li>{" "}
